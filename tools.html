@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools - Compiler Forge Toolkit</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="assets/fav_ico.png" type="image/x-icon">
+
+    <!-- daisy and tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/f6fc430968.js" crossorigin="anonymous"></script>
+
+    <!-- custom css -->
+    <style>
+        .active {
+            background-color: rgb(96 165 250);
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="font-[Poppins] bg-slate-900 text-white">
+
+
+    <!-- header -->
+    <header class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50 py-4">
+        <nav class="px-5 container m-auto flex justify-between items-center">
+            <div>
+                <!-- logo -->
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <span class="flex items-center justify-center h-11 w-11 rounded-md border-2 border-slate-600 text-white text-2xl group-hover:bg-slate-700 group-hover:text-white transition-colors"><i
+                            class="fa-solid fa-code-branch"></i></span>
+                    <span class="flex flex-col leading-tight font-extrabold text-xl sm:text-2xl tracking-tight">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">COMPILE</span>
+                        <span class="-mt-0.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">CRAFT</span>
+                    </span>
+                </a>
+            </div>
+
+            <!-- mid -->
+            <div>
+                <ul class="flex items-center gap-7 font-semibold cursor-pointer text-white">
+                    <li class="hidden md:block"><a href="index.html" class="hover:text-cyan-400">Home</a>
+                    </li>
+                    <li id="btn-tools"
+                        class="py-1 text-lg text-white border border-slate-600 px-3 rounded hover:bg-slate-700 hover:text-white transition-colors"><i
+                            class="fa-solid fa-wand-magic-sparkles"></i> Tools</li>
+                    <li class="hidden md:block"><a href="about.html" class="hover:text-cyan-400">About</a></li>
+
+                </ul>
+            </div>
+
+            <div>
+                <a href="https://github.com/garodiaa/compiler-forge-toolkit" target="_blank"><button
+                        class="btn btn-sm sm:btn-md py-1 bg-slate-700 text-white border border-slate-600 hover:bg-white hover:text-slate-900">Fork
+                        on GitHub</button></a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="bg-slate-900 pb-15 px-5">
+
+        <section class="container m-auto py-10 grid grid-cols-1 md:grid-cols-3 md:gap-5">
+            <aside class="col-span-1 sm:pr-5 md:border-r border-slate-800">
+                <div class="mb-10 flex flex-col flex-wrap justify-center gap-4">
+                    <!-- sidebar active state and buttons -->
+                    <button id="lr"
+                        class="rounded-lg lg:text-lg active btn-tool btn bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-none hover:from-cyan-400 hover:to-blue-500 transition-colors">Left
+                        Recursion Elimination</button>
+                    <button id="lf"
+                        class="rounded-lg lg:text-lg btn-tool btn bg-slate-800 text-cyan-300 border border-slate-600 hover:bg-slate-700 hover:text-white transition-colors">Left
+                        Factoring</button>
+                    <button id="ff"
+                        class="rounded-lg lg:text-lg btn-tool btn bg-slate-800 text-cyan-300 border border-slate-600 hover:bg-slate-700 hover:text-white transition-colors">First
+                        and Follow Set Calculation</button>
+                </div>
+
+                <div class="mb-5 border p-5 rounded-xl bg-slate-900 border-slate-700">
+                    <h3 class="font-semibold mb-2 text-white">Supported Grammars</h3>
+                    <ul class="text-white px-7 text-sm list-disc">
+                        <li>A -> A c | A a d | b d | ϵ <br>
+                            (All tokens must be separated by space characters)</li>
+                        <li>A -> A c
+                            <br>&emsp;&emsp;| A a d
+                            <br>&emsp;&emsp;| b d
+                            <br>&emsp;&emsp;| ϵ
+                        </li>
+                        <li>S -> A a | b
+                            <br>A -> A c | S d | ϵ
+                        </li>
+                        <li>(Copy ϵ to input if needed)</li>
+                    </ul>
+                </div>
+
+                <div class="mb-5 md:mb-0 border p-5 rounded-xl bg-slate-900 border-slate-700">
+                    <h3 class="font-semibold mb-2 text-white">Example</h3>
+                    <ul id="grammar-list" class="text-white px-2 text-sm list-disc">
+                        <li class="py-2 border-b-1 border-gray-300 flex justify-between items-center">S -> S S + | S S *
+                            | a
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+                        </li>
+
+                        <li class="py-2 border-b-1 border-gray-300 flex justify-between items-center">S -> 0 S 1 | 0 1
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+                        </li>
+
+                        <li class="py-2 border-b-1 border-gray-300 flex justify-between items-center">S -> ( L ) | a
+                            <br>L -> L , S | S
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+
+                        </li>
+
+                        <li class="py-2 border-b-1 border-gray-300 flex justify-between items-center">S -> a S b S | b S
+                            a S | ϵ
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+
+                        </li>
+                        <li class="py-2 border-b-1 border-gray-300 flex justify-between items-center">S -> S + S | S S |
+                            ( S ) | S * | a
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+
+                        </li>
+                        <li class="py-2 border-gray-300 flex justify-between items-center">S -> + S S | * S S | a
+                            <button class="copy-btn btn btn-sm px-2 py-1 rounded text-xs text-gray-600">Copy</button>
+
+                        </li>
+                    </ul>
+                </div>
+
+            </aside>
+
+
+            <section class="col-span-2">
+
+                <!-- left recursion -->
+                <section id="sec-lr" class="section rounded-xl">
+                    <div class="px-5 pb-5 grid grid-cols-1 gap-5">
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Input</h2>
+                            <textarea id="lr-input"
+                                class="w-full h-60 p-3 border border-slate-700 rounded-lg resize-none bg-slate-950 text-white"
+                                placeholder="Enter your grammar here..."></textarea>
+                            <div class="flex justify-center mt-2">
+                                <!-- process buttons -->
+                                <button id="btn-process-lr"
+                                    class="btn btn-wide rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
+                            </div>
+                        </div>
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Output</h2>
+                            <div class="w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950">
+                                <p id="lr-output" class="text-white">Output will be displayed here...</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+
+                <!-- left factoring -->
+                <section id="sec-lf" class="hidden section rounded-xl">
+                    <div class="px-5 pb-5 grid grid-cols-1 gap-5">
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Input</h2>
+                            <textarea id="lf-input"
+                                class="w-full h-60 p-3 border border-slate-700 rounded-lg resize-none bg-slate-950 text-white"
+                                placeholder="Enter your grammar here..."></textarea>
+                            <div class="flex justify-center mt-2">
+                                <button id="btn-process-lf"
+                                    class="btn btn-wide rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
+                            </div>
+                        </div>
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Output</h2>
+                            <div class="w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950">
+                                <p id="lf-output" class="text-white">Output will be displayed here...</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- first and follow -->
+
+                <section id="sec-ff" class="hidden section rounded-xl">
+                    <div class="px-5 pb-5 grid grid-cols-1 gap-5">
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Input</h2>
+                            <textarea id="ff-input"
+                                class="w-full h-60 p-3 border border-slate-700 rounded-lg resize-none bg-slate-950 text-white"
+                                placeholder="Enter your grammar here..."></textarea>
+                            <div class="flex justify-center mt-2">
+                                <button id="btn-process-ff"
+                                    class="btn btn-wide rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
+                            </div>
+                        </div>
+                        <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
+                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Output</h2>
+                            <div class="overflow-auto w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950">
+                                <div id="ff-output">
+                                    <table class="text-sm md:text-lg text-white overflow-auto w-full rounded-box border-collapse border border-slate-700">
+                                        <thead>
+                                            <tr class="bg-slate-800">
+                                                <th class='border border-slate-700 px-4 py-2 text-left'>Non-Terminal</th>
+                                                <th class='border border-slate-700 px-4 py-2 text-left'>First</th>
+                                                <th class='border border-slate-700 px-4 py-2 text-left'>Follow</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+            </section>
+        </section>
+
+        <!-- first and follow -->
+
+
+    </main>
+
+    <!-- footer -->
+    <footer class="mt-28 bg-slate-900/80 border-t border-slate-800 relative overflow-hidden">
+    <!-- subtle gradient glow decorations -->
+        <div class="pointer-events-none absolute -top-24 -left-10 h-72 w-72 rounded-full bg-gradient-to-tr from-cyan-300/15 to-blue-700/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-28 -right-10 h-80 w-80 rounded-full bg-gradient-to-tr from-blue-700/10 to-cyan-300/10 blur-3xl"></div>
+        <!-- top accent bar -->
+        <div class="h-1 w-full bg-gradient-to-r from-cyan-300 via-blue-700 to-cyan-300/60"></div>
+        <div class="relative z-10 container mx-auto px-5 py-16">
+        <div class="grid gap-12 lg:gap-16 md:grid-cols-3">
+            <!-- Brand / Intro -->
+            <div>
+            <a href="index.html" class="flex items-center gap-3 group mb-4">
+                <span class="flex items-center justify-center h-12 w-12 rounded-lg border border-slate-600 text-white text-2xl group-hover:bg-slate-700 transition-colors"><i class="fa-solid fa-code-branch"></i></span>
+                <span class="flex flex-col leading-tight font-extrabold text-2xl tracking-tight">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">COMPILE</span>
+                <span class="-mt-1 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">CRAFT</span>
+                </span>
+            </a>
+            <p class="text-sm text-white/80 max-w-sm">Compiler Forge Toolkit simplifies compiler construction with instant, accurate outputs—empowering students to focus on concepts, not boilerplate.</p>
+            <div class="flex gap-3 mt-5">
+                <a href="https://github.com/garodiaa" target="_blank" aria-label="GitHub" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+                <a href="https://www.linkedin.com/in/sourav-garodia/" target="_blank" aria-label="LinkedIn" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+                <a href="https://www.youtube.com/@garodia" target="_blank" aria-label="YouTube" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+            </div>
+            </div>
+            <!-- Explore Links -->
+            <div class="md:pl-4">
+            <h6 class="font-semibold text-lg mb-4 text-white tracking-wide">Explore</h6>
+            <ul class="space-y-2 text-sm">
+                <li><a href="index.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Home</a></li>
+                <li><a href="tools.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Tools</a></li>
+                <li><a href="about.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>About</a></li>
+                <li><a href="contact.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Contact</a></li>
+            </ul>
+            </div>
+            <!-- Follow / Newsletter placeholder -->
+            <div class="md:pl-4">
+            <h6 class="font-semibold text-lg mb-4 text-white tracking-wide">Stay Updated</h6>
+            <p class="text-sm text-white/70 mb-4">Future additions: AST visualizer & optimizations. Bookmark or star the repo to follow progress.</p>
+            <a href="https://github.com/garodiaa/compiler-forge-toolkit" target="_blank" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-700 text-slate-900 font-semibold px-5 py-2.5 shadow hover:from-cyan-200 hover:to-blue-600 transition-colors text-sm">
+                <i class="fa-brands fa-github"></i> Star on GitHub
+            </a>
+            </div>
+        </div>
+        <!-- bottom bar -->
+        <div class="mt-14 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
+            <small>© 2025 Compiler Forge Toolkit. Made with <span class="text-cyan-400">❤</span> by <a href="https://github.com/garodiaa" class="text-cyan-300 hover:underline">Garodia</a></small>
+            <div class="flex items-center gap-3 text-white/50">
+            <span class="hover:text-white cursor-pointer transition-colors">MIT License</span>
+            <span class="opacity-40">•</span>
+            <a href="tools.html" class="hover:text-white transition-colors">Launch Tools</a>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+    <script src="scripts/tools.js"></script>
+    <script src="scripts/basic.js"></script>
+    <script src="scripts/lf.js"></script>
+    <script src="scripts/lr.js"></script>
+    <script src="scripts/ff.js"></script>
+
+</body>
+
+</html>
