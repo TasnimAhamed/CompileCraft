@@ -1,4 +1,4 @@
-# Compiler Forge Toolkit
+# Compile Craft – The Art of Compilation
 
 ![Version](https://img.shields.io/badge/version-1.0.0-red?style=flat)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white&style=flat)
@@ -8,10 +8,10 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/6bcdb1fc-093e-4e49-8f4f-c8ce355f7717/deploy-status)](https://app.netlify.com/projects/compiler-forge/deploys)
 
 
-The Compiler Forge Toolkit is a web-based utility designed to simplify and accelerate learning in compiler design. Built as a companion tool to this book, it allows students and educators to instantly compute critical compiler construction components like Left Recursion Elimination, Left Factoring, and First & Follow Sets — all with just a few clicks.
-Whether you're learning the concepts for the first time or building a parser, Compiler Forge helps reduce manual effort and error by providing clean, structured outputs.
+Compile Craft is a web-based toolkit designed to simplify and accelerate learning in compiler design. It lets students and educators instantly compute key compiler construction components like Left Recursion Elimination, Left Factoring, and FIRST & FOLLOW sets — all with just a few clicks.
+Whether you're learning the concepts for the first time or building a parser, Compile Craft helps reduce manual effort and error by providing clean, structured outputs.
 
-> Struggling with Left Recursion, Left Factoring, or First-Follow calculations? Compiler Forge is here to help!
+> Struggling with Left Recursion, Left Factoring, or FIRST/FOLLOW calculations? Compile Craft is here to help!
 
 ## Live Site : [https://compiler-forge.netlify.app](https://compiler-forge.netlify.app)
 
