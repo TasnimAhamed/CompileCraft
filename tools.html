@@ -44,6 +44,19 @@
             color: #ffffff;
             border-color: transparent;
         }
+        /* Logo shine animation */
+        .logo-glass { position: relative; overflow: hidden; }
+        .logo-glass::after {
+            content: "";
+            position: absolute;
+            top:0; left:-140%;
+            width:140%; height:100%;
+            background: linear-gradient(115deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 40%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.07) 60%, rgba(255,255,255,0) 100%);
+            transform: skewX(-20deg);
+            animation: logoSweep 12s ease-in-out infinite;
+            pointer-events:none;
+        }
+        @keyframes logoSweep { 0%,82% { left:-140%; } 88% { left:140%; } 100% { left:140%; } }
     </style>
 </head>
 
@@ -58,7 +71,7 @@
                 <a href="index.html" class="flex items-center gap-3 group">
                     <span class="flex items-center justify-center h-11 w-11 rounded-md border-2 border-slate-600 text-white text-2xl group-hover:bg-slate-700 group-hover:text-white transition-colors"><i
                             class="fa-solid fa-code-branch"></i></span>
-                    <span class="flex flex-col leading-tight font-extrabold text-xl sm:text-2xl tracking-tight">
+                    <span class="flex flex-col leading-tight font-extrabold text-xl sm:text-2xl tracking-tight logo-glass">
                         <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">COMPILE</span>
                         <span class="-mt-0.5 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">CRAFT</span>
                     </span>
@@ -271,7 +284,7 @@
             <div>
             <a href="index.html" class="flex items-center gap-3 group mb-4">
                 <span class="flex items-center justify-center h-12 w-12 rounded-lg border border-slate-600 text-white text-2xl group-hover:bg-slate-700 transition-colors"><i class="fa-solid fa-code-branch"></i></span>
-                <span class="flex flex-col leading-tight font-extrabold text-2xl tracking-tight">
+                <span class="flex flex-col leading-tight font-extrabold text-2xl tracking-tight logo-glass">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">COMPILE</span>
                 <span class="-mt-1 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700">CRAFT</span>
                 </span>
