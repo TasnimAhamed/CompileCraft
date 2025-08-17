@@ -59,16 +59,31 @@ function updateExamples(key){
         const li=document.createElement('li');
         li.className='py-2 border-b border-slate-700/60 last:border-none group';
         li.innerHTML='<pre class="whitespace-pre-wrap text-white/90 text-[11px] leading-snug">'+escapeHTML(txt)+'</pre>'+
-            '<button class="copy-btn btn btn-xs mt-1 px-2 py-0.5 rounded text-[10px] border border-slate-600 text-slate-300 group-hover:text-white group-hover:border-cyan-400">Copy</button>';
+            '<button class="insert-btn btn btn-xs mt-1 px-2 py-0.5 rounded-full text-[10px] font-medium text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 border-0">Insert</button>';
+        li.dataset.exampleValue = txt;
+        li.dataset.exampleTool = key;
         list.appendChild(li);
     });
-    // rebind copy buttons
-    document.querySelectorAll('#grammar-list .copy-btn').forEach(btn=>{
-        btn.addEventListener('click',function(){
-            const text=this.parentElement.querySelector('pre').innerText.trim();
-            navigator.clipboard.writeText(text); 
-            this.textContent='Copied';
-            setTimeout(()=>this.textContent='Copy',1200);
+    // bind insert buttons
+    document.querySelectorAll('#grammar-list .insert-btn').forEach(btn=>{
+        btn.addEventListener('click', function(){
+            const li=this.parentElement;
+            const value=li.dataset.exampleValue || '';
+            const tool=li.dataset.exampleTool;
+            const map={ ff:'#ff-input', lr:'#lr-input', tac:'#tac-input' };
+            const targetSel=map[tool];
+            if(targetSel){
+                const textarea=document.querySelector(targetSel);
+                if(textarea){
+                    textarea.value=value;
+                    textarea.focus();
+                }
+                this.textContent='Inserted';
+                setTimeout(()=>{ this.textContent='Insert'; },1200);
+            } else {
+                this.textContent='Upcoming';
+                setTimeout(()=>{ this.textContent='Insert'; },1200);
+            }
         });
     });
 }
