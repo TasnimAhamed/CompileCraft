@@ -121,19 +121,23 @@ if(lrClear){
 
 document.getElementById("btn-process-ff").addEventListener("click", () => {
     const grammarInput = document.getElementById("ff-input").value;
-    const result = computeFirstAndFollowSets(grammarInput);
-    const out = document.getElementById("ff-output");
-    if(!out) return;
+    const container = document.getElementById("ff-output");
+    if(!container) return;
     if(!grammarInput.trim()){
-        out.textContent='// FIRST & FOLLOW output will appear here...';
-        return; }
-    let lines = ['// FIRST & FOLLOW Sets'];
-    for (const nt of Object.keys(result.first)) {
+        container.textContent='// FIRST & FOLLOW output will appear here...';
+        return;
+    }
+    const result = computeFirstAndFollowSets(grammarInput);
+    let html = "<div class='mb-2 text-cyan-300 font-semibold tracking-wide text-xs uppercase'>FIRST & FOLLOW Sets</div>";
+    html += "<table class='text-xs md:text-sm text-white w-full border-collapse border border-slate-700 rounded-box'>";
+    html += "<thead><tr class='bg-slate-800 text-cyan-300'><th class='border border-slate-700 px-3 py-1 text-left'>Non-Terminal</th><th class='border border-slate-700 px-3 py-1 text-left'>FIRST</th><th class='border border-slate-700 px-3 py-1 text-left'>FOLLOW</th></tr></thead><tbody>";
+    Object.keys(result.first).forEach(nt => {
         const firstSet = result.first[nt].join(' ');
         const followSet = result.follow[nt].join(' ');
-        lines.push(nt + '  FIRST: { ' + firstSet + ' }  FOLLOW: { ' + followSet + ' }');
-    }
-    out.textContent = lines.join('\n');
+        html += `<tr class='odd:bg-slate-900 even:bg-slate-800/40 hover:bg-slate-700/40 transition-colors'><td class='border border-slate-700 px-3 py-1'>${nt}</td><td class='border border-slate-700 px-3 py-1 text-cyan-200'>${firstSet}</td><td class='border border-slate-700 px-3 py-1 text-cyan-200'>${followSet}</td></tr>`;
+    });
+    html += '</tbody></table>';
+    container.innerHTML = html;
 });
 
 // Add clear button for FIRST/FOLLOW
