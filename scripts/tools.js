@@ -253,8 +253,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById('btn-grammars');
     const pop = document.getElementById('popover-grammars');
     const closeBtn = document.getElementById('close-grammars');
-    const insertBtn = document.getElementById('btn-insert-sample');
-    const ffInput = document.getElementById('ff-input');
     if(btn && pop){
         const hide = () => { pop.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); };
         const show = () => { pop.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); };
@@ -262,6 +260,5 @@ document.addEventListener("DOMContentLoaded", () => {
         closeBtn && closeBtn.addEventListener('click', (e)=>{ e.stopPropagation(); hide(); });
         document.addEventListener('click',(e)=>{ if(!pop.contains(e.target) && e.target!==btn){ hide(); } });
         document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') hide(); });
-        insertBtn && insertBtn.addEventListener('click', ()=>{ if(ffInput){ ffInput.value = 'A -> A c | A a d | b d | ϵ'; hide(); ffInput.focus(); } });
     }
 });
