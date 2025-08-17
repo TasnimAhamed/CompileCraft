@@ -41,8 +41,11 @@
       </div>
       <div>
         <ul class="flex items-center gap-7 font-semibold cursor-pointer text-white">
-          <li class="hidden md:block"><a href="index.html" class="hover:text-cyan-400">Home</a></li>
-          <li id="btn-tools" class="py-1 text-lg text-white border border-slate-600 px-3 rounded hover:bg-slate-700 hover:text-white transition-colors"><i class="fa-solid fa-wand-magic-sparkles"></i> Tools</li>
+          <li class="hidden md:block"><a href="index.html" class="pb-1 text-white hover:text-cyan-400">Home</a></li>
+          <li id="btn-tools" role="button" tabindex="0" class="group relative py-1.5 text-base text-cyan-200 font-semibold border border-cyan-400/40 bg-slate-800/60 px-4 rounded-md hover:text-white hover:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:ring-offset-0 hover:bg-gradient-to-r from-cyan-300/10 to-blue-700/10 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-cyan-300 group-hover:text-cyan-200 group-active:rotate-12 transition-transform"></i>
+            <span class="tracking-wide">Tools</span>
+          </li>
           <li class="hidden md:block"><a href="about.html" class="pb-1 border-b-2 border-cyan-400 text-white hover:text-cyan-400">About</a></li>
         </ul>
       </div>
@@ -54,57 +57,131 @@
 
   <!-- main -->
   <main class="bg-slate-900 pb-15 px-5">
-    <!-- about project section -->
-    <section class="container m-auto py-10">
-      <div class="card shadow-lg bg-slate-900 border rounded-3xl border-slate-800">
-        <div class="card-body px-8 py-10">
-          <h1 class="pb-2 text-3xl md:text-5xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700 mb-4 text-center">About Compiler Forge Toolkit</h1>
-          <p class="text-lg text-white mb-4 text-justify"> <span class="font-bold text-cyan-300">Compiler Forge Toolkit</span> is a web-based utility designed to simplify and accelerate learning in compiler design. Built as a companion tool to the <a href="https://github.com/user-attachments/files/20443087/Compiler.Forge.Handbook.-.1st.Edition.by.Garodia.pdf" class="text-cyan-300 underline font-medium hover:text-blue-300" target="_blank">Compiler Forge Handbook</a>, it allows students and educators to instantly compute critical compiler construction components like Left Recursion Elimination, Left Factoring, and First &amp; Follow Sets, all with just a few clicks. Whether you're learning the concepts for the first time or building a parser, Compiler Forge helps reduce manual effort and error by providing clean, structured outputs.</p>
-          <div class="alert bg-slate-800 border border-cyan-500 text-cyan-300 mb-6 gap-2 flex justify-center items-center text-center italic">
-            Struggling with Left Recursion, Left Factoring, or First-Follow calculations? <span class="font-semibold">Compiler Forge</span> is here to help!
+
+    <!-- ABOUT SECTION (split layout) -->
+    <section id="about" class="container m-auto py-16">
+      <div class="relative grid md:grid-cols-2 gap-14 items-start">
+        <!-- decorative glows -->
+        <div class="pointer-events-none absolute -top-24 -left-10 h-72 w-72 rounded-full bg-gradient-to-tr from-cyan-300/15 to-blue-700/15 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-28 -right-10 h-80 w-80 rounded-full bg-gradient-to-tr from-blue-700/10 to-cyan-300/10 blur-3xl"></div>
+        <!-- text content -->
+        <div class="relative z-10 max-w-xl">
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-cyan-200 to-blue-700 mb-2">
+            Compiler Craft
+          </h1>
+          <p class="text-cyan-200/85 font-semibold text-lg md:text-xl mb-5">The Art of Compilation.</p>
+          <p class="text-white/85 text-sm md:text-base mb-6">A lightweight browser toolkit to experiment with grammars: eliminate left recursion, factor, compute FIRST/FOLLOW, build LL(1) tables &amp; preview 3‑address code — instantly.</p>
+          <div class="flex flex-wrap gap-3 mb-8 text-[11px] md:text-xs font-medium">
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">Left Recursion</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">Left Factoring</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">FIRST/FOLLOW</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">LL(1) Table</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">3AC</span>
+            <span class="px-3 py-1 rounded-full bg-slate-800/70 border border-slate-700 text-white/75">AST (Soon)</span>
           </div>
-          <div class="grid md:grid-cols-2 gap-8">
-            <div>
-              <h2 class="text-2xl font-bold mb-2 text-slate-100 flex items-center gap-2">
-                Features
-              </h2>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Left Recursion Elimination:</strong> Automatically eliminate left recursion from your grammar.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Left Factoring:</strong> Transform your grammar to remove left factoring issues.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>First &amp; Follow Sets:</strong> Compute the First and Follow sets for your grammar.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Interactive UI:</strong> User-friendly interface for easy input and output visualization.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Instant Results:</strong> Get results in real-time as you input your grammar.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Grammar Rules:</strong> Supports a wide range of grammar rules and constructs.</span></li>
-                <li class="flex items-start gap-2"><i class="fa-solid fa-arrow-right text-cyan-400 mt-1"></i><span><strong>Educational Tool:</strong> Ideal for students and educators in compiler design courses.</span></li>
-              </ul>
+          <div class="flex flex-wrap gap-4">
+            <a href="tools.html" class="group inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-300 to-blue-700 text-slate-900 font-semibold px-6 py-3 shadow hover:from-cyan-200 hover:to-blue-600 transition-colors text-sm">
+              <i class="fa-solid fa-terminal"></i> Launch Tools <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </a>
+            <a href="https://github.com/user-attachments/files/20443087/Compiler.Forge.Handbook.-.1st.Edition.by.Garodia.pdf" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-slate-600 hover:border-cyan-400 text-white/80 hover:text-white px-6 py-3 transition-colors text-sm">
+              <i class="fa-solid fa-book"></i> Handbook
+            </a>
+            <a href="https://github.com/garodiaa/Compiler-Forge-Hanbook-Codes" target="_blank" class="inline-flex items-center gap-2 rounded-xl border border-slate-600 hover:border-cyan-400 text-white/80 hover:text-white px-6 py-3 transition-colors text-sm">
+              <i class="fa-brands fa-github"></i> Codes
+            </a>
+          </div>
+        </div>
+        <!-- code / visual -->
+        <div class="relative z-10 md:justify-self-end w-full">
+          <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-cyan-300/25 to-blue-700/25 blur-xl"></div>
+          <div class="relative rounded-2xl bg-slate-900/80 border border-slate-700 shadow-xl w-[min(100%,34rem)] flex flex-col overflow-hidden">
+            <div class="p-5 pb-3 font-mono text-[11px] sm:text-xs leading-relaxed text-cyan-200">
+              <div class="flex items-center justify-between mb-2">
+                <h3 class="text-white/90 font-semibold tracking-wide text-[11px] uppercase">Sample Transformation</h3>
+                <button class="text-[10px] px-2 py-1 rounded border border-slate-600 text-white/60 hover:text-white hover:border-cyan-400 transition-colors" onclick="navigator.clipboard && navigator.clipboard.writeText(aboutGrammarBlock.innerText)">Copy</button>
+              </div>
+<pre id="aboutGrammarBlock" class="whitespace-pre leading-snug">// Input
+E -> E + T | T
+T -> T * F | F
+F -> ( E ) | id
+
+// After Left Recursion Removal
+E  -> T E'
+E' -> + T E' | ε
+T  -> F T'
+T' -> * F T' | ε
+
+// FIRST(E) = ( , id</pre>
             </div>
-            <div>
-              <h2 class="text-2xl font-bold mb-2 text-slate-100 flex items-center gap-2">
-                Technologies Used
-              </h2>
-              <ul class="space-y-2 text-white">
-                <li><span><strong>Frontend:</strong> HTML5, JavaScript</span></li>
-                <li><span><strong>Styling:</strong> Tailwind CSS, Daisy UI</span></li>
-                <li><span><strong>Responsive Design:</strong> Fully responsive layout compatible across devices and browsers.</span></li>
-              </ul>
-              <div class="mt-6 mb-4">
-                <a href="https://github.com/user-attachments/files/20443087/Compiler.Forge.Handbook.-.1st.Edition.by.Garodia.pdf" class="btn btn-sm bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-none hover:from-cyan-400 hover:to-blue-500 mr-2 mb-2" target="_blank"><i class="fa-solid fa-book mr-1"></i> Handbook</a>
-                <a href="https://github.com/garodiaa/Compiler-Forge-Hanbook-Codes" class="btn btn-sm bg-slate-800 text-cyan-300 border border-slate-600 hover:bg-slate-700 hover:text-white mb-2" target="_blank"><i class="fa-brands fa-github mr-1"></i> Handbook Codes</a>
-              </div>
-              <div>
-                <h2 class="text-2xl font-bold mb-2 text-slate-100 flex items-center gap-2">
-                  Contact
-                </h2>
-                <ul class="space-y-2">
-                  <li class="flex items-center gap-2"><i class="fa-brands fa-github text-slate-400"></i><a href="https://github.com/garodiaa" target="_blank" class="text-cyan-400 underline font-medium hover:text-blue-400">github.com/garodiaa</a></li>
-                </ul>
-              </div>
+            <div class="h-px bg-gradient-to-r from-slate-700 via-slate-600/60 to-slate-700"></div>
+            <div class="px-5 py-3 flex items-center flex-wrap gap-3 text-[10px] text-white/50">
+              <span class="inline-flex items-center gap-1"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> Instant</span>
+              <span class="inline-flex items-center gap-1"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> Client-Side</span>
+              <span class="inline-flex items-center gap-1"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> No Backend</span>
             </div>
           </div>
-          <div class="divider my-8"></div>
-          <div class="text-center text-white text-sm">
-            <span class="text-center">Made with <span class="text-cyan-400">❤</span> by <strong><a href="https://github.com/garodiaa" class="hover:underline text-cyan-400">Garodia</a></strong></span><br>
-            <span>Version 1.0.0 | Last updated on June, 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- STACK & FEATURES (Merged) -->
+    <section id="features" class="container m-auto py-16">
+      <h2 class="text-center text-3xl md:text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700 mb-14">Stack &amp; Features</h2>
+      <div class="grid md:grid-cols-2 gap-14 max-w-6xl mx-auto">
+        <!-- Technologies (Left) -->
+        <div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-5 flex items-center gap-2"><i class="fa-solid fa-microchip text-cyan-300"></i> Technology</h3>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-layer-group"></i></span><span class="font-medium text-white/90">HTML5 + Vanilla JS</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-paintbrush"></i></span><span class="font-medium text-white/90">Tailwind CSS</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-shapes"></i></span><span class="font-medium text-white/90">DaisyUI Components</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-font"></i></span><span class="font-medium text-white/90">Poppins Typeface</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-icons"></i></span><span class="font-medium text-white/90">Font Awesome Icons</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-bolt"></i></span><span class="font-medium text-white/90">Client-Side Only</span></li>
+            <li class="flex items-center gap-3"><span class="h-8 w-8 flex items-center justify-center rounded-md bg-slate-800 text-cyan-300"><i class="fa-solid fa-scale-balanced"></i></span><span class="font-medium text-white/90">MIT Licensed</span></li>
+          </ul>
+          <div class="mt-10 text-xs text-white/60">
+            <p><strong class="text-white/80">Version:</strong> 1.0.0</p>
+            <p><strong class="text-white/80">Updated:</strong> June 2025</p>
+          </div>
+          <div class="mt-8">
+            <a href="https://github.com/garodiaa" target="_blank" class="inline-flex items-center gap-2 text-cyan-300 hover:text-cyan-200 text-sm font-medium"><i class="fa-brands fa-github"></i> github.com/garodiaa</a>
+          </div>
+        </div>
+        <!-- Features (Right) -->
+        <div>
+          <h3 class="text-xl font-semibold text-slate-100 mb-5 flex items-center gap-2"><i class="fa-solid fa-star text-cyan-300"></i> Key Features</h3>
+          <ul class="space-y-4">
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-rotate-left"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">Left Recursion Elimination</p><p class="text-white/50">Predictive-ready productions.</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-scissors"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">Left Factoring</p><p class="text-white/50">Remove common prefixes.</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-list-check"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">FIRST / FOLLOW Sets</p><p class="text-white/50">Instant derivation.</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-table"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">LL(1) Parse Table</p><p class="text-white/50">Conflict awareness.</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-file-code"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">Three-Address Code</p><p class="text-white/50">Intermediate form.</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="h-7 w-7 flex items-center justify-center rounded bg-slate-800 text-cyan-300 text-xs"><i class="fa-solid fa-sitemap"></i></span>
+              <div class="text-sm"><p class="font-medium text-white/90">AST Visualizer (Soon)</p><p class="text-white/50">Upcoming module.</p></div>
+            </li>
+          </ul>
+          <div class="mt-10 grid sm:grid-cols-2 gap-4 text-[11px] text-white/60">
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> Client-Side Only</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> Instant Output</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> No Backend</span>
+            <span class="inline-flex items-center gap-2"><i class="fa-solid fa-circle text-[6px] text-cyan-400"></i> MIT License</span>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
   <meta charset="UTF-8">
@@ -44,13 +44,15 @@
       <div>
         <ul class="flex items-center gap-7 font-semibold cursor-pointer text-white">
           <li class="hidden md:block"><a href="index.html" class="pb-1 border-b-2 border-cyan-400 text-white hover:text-cyan-400">Home</a></li>
-          <li id="btn-tools" class="py-1 text-lg text-white border border-slate-600 px-3 rounded hover:bg-slate-700 hover:text-white transition-colors"><i class="fa-solid fa-wand-magic-sparkles"></i> Tools</li>
-          <li class="hidden md:block"><a href="about.html" class="hover:text-cyan-400 text-white">About</a></li>
+          <li id="btn-tools" role="button" tabindex="0" class="group relative py-1.5 text-base text-cyan-200 font-semibold border border-cyan-400/40 bg-slate-800/60 px-4 rounded-md hover:text-white hover:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400/60 focus:ring-offset-0 hover:bg-gradient-to-r from-cyan-300/10 to-blue-700/10 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles text-cyan-300 group-hover:text-cyan-200 group-active:rotate-12 transition-transform"></i>
+            <span class="tracking-wide">Tools</span>
+          </li>
         </ul>
       </div>
 
       <div>
-        <a href="https://github.com/garodiaa/compiler-forge-toolkit" target="_blank"><button class="btn btn-sm sm:btn-md py-1 bg-slate-700 text-white border border-slate-600 hover:bg-white hover:text-slate-900">Fork on GitHub</button></a>
+        <a href="https://github.com/TasnimAhamed/CompileCraft" target="_blank"><button class="btn btn-sm sm:btn-md py-1 bg-slate-700 text-white border border-slate-600 hover:bg-white hover:text-slate-900">Fork on GitHub</button></a>
       </div>
     </nav>
   </header>
@@ -257,45 +259,39 @@ T' -> * F T' | ε</pre>
       </div>
     </section>
 
-    <!-- key features -->
-    <section class="container m-auto my-30 px-15">
-      <h3 class="text-center text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700 mb-6">Key Features</h3>
-      <div class="text-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-2">
-        <!-- First & Follow Sets -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-list-check"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">First & Follow Sets</h4>
-          <p class="text-white">Instantly compute First and Follow sets of a given grammar to aid in LL(1) parsing.</p>
+    <!-- FEATURES SECTION -->
+    <section id="features" class="container m-auto py-20">
+      <h2 class="text-center text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-700 mb-12">Key Capabilities</h2>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-list-check text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">FIRST &amp; FOLLOW Sets</h3>
+          <p class="text-sm text-white/80">Generate FIRST/FOLLOW sets instantly to support LL(1) table derivation.</p>
         </div>
-        <!-- Left Recursion Elimination -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-rotate-left"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">Left Recursion Elimination</h4>
-          <p class="text-white">Automatically transform left-recursive grammars into equivalent non-left-recursive forms for easier parsing.</p>
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-rotate-left text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">Left Recursion Elimination</h3>
+          <p class="text-sm text-white/80">Convert left‑recursive productions into equivalent forms ready for predictive parsing.</p>
         </div>
-                <!-- Three-Address Code Generator -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-file-code"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">3-Address Code</h4>
-          <p class="text-white">Convert arithmetic & boolean expressions into intermediate three-address code form.</p>
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-file-code text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">Three‑Address Code</h3>
+          <p class="text-sm text-white/80">Transform expressions into clean intermediate representations (3AC).</p>
         </div>
-        <!-- Left Factoring -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-scissors"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">Left Factoring</h4>
-          <p class="text-white">Optimize grammars by factoring out common prefixes, making them suitable for predictive parsing.</p>
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-scissors text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">Left Factoring</h3>
+          <p class="text-sm text-white/80">Factor common prefixes to reduce parsing ambiguity and conflicts.</p>
         </div>
-        <!-- LL(1) Parse Table Builder -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-table"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">LL(1) Parse Table</h4>
-          <p class="text-white">Generate LL(1) parsing tables to validate grammar suitability and detect conflicts early.</p>
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-table text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">LL(1) Parse Table</h3>
+          <p class="text-sm text-white/80">Build parse tables and spot conflicts early in the design process.</p>
         </div>
-        <!-- Syntax Tree Visualizer -->
-        <div class="flex flex-col items-center rounded-lg p-5 gap-3 border border-slate-700 bg-slate-800">
-          <div class="flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-cyan-300 to-blue-700"><i class="text-white fa-solid fa-sitemap"></i></div>
-          <h4 class="text-xl font-semibold mb-1 text-slate-100">Syntax Tree Visualizer</h4>
-          <p class="text-white">Visualize abstract syntax trees to better understand structural relationships in code.</p>
+        <div class="p-6 rounded-xl border border-slate-700 bg-slate-800/70 flex flex-col gap-3">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-r from-cyan-300 to-blue-700"><i class="fa-solid fa-sitemap text-white"></i></div>
+          <h3 class="font-semibold text-lg text-slate-100">Syntax Tree Visualizer</h3>
+          <p class="text-sm text-white/80">Upcoming module to visualize syntax trees for deeper structural insight.</p>
         </div>
       </div>
     </section>
@@ -321,9 +317,9 @@ T' -> * F T' | ε</pre>
           </a>
           <p class="text-sm text-white/80 max-w-sm">Compiler Forge Toolkit simplifies compiler construction with instant, accurate outputs—empowering students to focus on concepts, not boilerplate.</p>
           <div class="flex gap-3 mt-5">
-            <a href="https://github.com/garodiaa" target="_blank" aria-label="GitHub" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
-            <a href="https://www.linkedin.com/in/sourav-garodia/" target="_blank" aria-label="LinkedIn" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
-            <a href="https://www.youtube.com/@garodia" target="_blank" aria-label="YouTube" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
+            <a href="https://github.com/TasnimAhamed" target="_blank" aria-label="GitHub" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-github text-lg"></i></a>
+            <a href="https://www.linkedin.com/in/sourav-Tasnim/" target="_blank" aria-label="LinkedIn" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            <a href="https://www.youtube.com/@Tasnim" target="_blank" aria-label="YouTube" class="h-9 w-9 flex items-center justify-center rounded-md border border-slate-600 hover:border-cyan-400 hover:text-cyan-300 transition-colors"><i class="fa-brands fa-youtube text-lg"></i></a>
           </div>
         </div>
         <!-- Explore Links -->
@@ -332,22 +328,22 @@ T' -> * F T' | ε</pre>
           <ul class="space-y-2 text-sm">
             <li><a href="index.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Home</a></li>
             <li><a href="tools.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Tools</a></li>
-            <li><a href="about.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>About</a></li>
-            <li><a href="contact.html" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Contact</a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>About</a></li>
+            <li><a href="#" class="group inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400 group-hover:scale-110 transition-transform"></span>Contact</a></li>
           </ul>
         </div>
         <!-- Follow / Newsletter placeholder -->
         <div class="md:pl-4">
           <h6 class="font-semibold text-lg mb-4 text-white tracking-wide">Stay Updated</h6>
           <p class="text-sm text-white/70 mb-4">Future additions: AST visualizer & optimizations. Bookmark or star the repo to follow progress.</p>
-          <a href="https://github.com/garodiaa/compiler-forge-toolkit" target="_blank" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-700 text-slate-900 font-semibold px-5 py-2.5 shadow hover:from-cyan-200 hover:to-blue-600 transition-colors text-sm">
+          <a href="https://github.com/TasnimAhamed/CompileCraft" target="_blank" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-300 to-blue-700 text-slate-900 font-semibold px-5 py-2.5 shadow hover:from-cyan-200 hover:to-blue-600 transition-colors text-sm">
             <i class="fa-brands fa-github"></i> Star on GitHub
           </a>
         </div>
       </div>
       <!-- bottom bar -->
       <div class="mt-14 border-t border-slate-800/60 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/60">
-        <small>© 2025 Compiler Forge Toolkit. Made with <span class="text-cyan-400">❤</span> by <a href="https://github.com/garodiaa" class="text-cyan-300 hover:underline">Garodia</a></small>
+        <small>© 2025 Compiler Forge Toolkit. Made with <span class="text-cyan-400">❤</span> by <a href="https://github.com/TasnimAhamed" class="text-cyan-300 hover:underline">Tasnim</a></small>
         <div class="flex items-center gap-3 text-white/50">
           <span class="hover:text-white cursor-pointer transition-colors">MIT License</span>
           <span class="opacity-40">•</span>
