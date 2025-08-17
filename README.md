@@ -89,14 +89,6 @@ T' -> * F T' | ε
 
 No frameworks, build tooling, or external compute services.
 
----
-## 🧭 Roadmap
-- [ ] Left Factoring implementation & UI activation
-- [ ] LL(1) table generator with conflict highlighting
-- [ ] AST visualizer (collapsible tree / zoom)
-- [ ] Export to JSON / markdown tables
-- [ ] Optional grammar persistence (localStorage)
-- [ ] Performance micro‑benchmarks for large grammars
 
 ---
 ## 🤝 Contributing
