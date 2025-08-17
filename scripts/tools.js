@@ -102,49 +102,50 @@ function activeSection(sectionId) {
 
 document.getElementById("btn-process-lr").addEventListener("click", () => {
     const grammarInput = document.getElementById("lr-input").value;
-    // console.log("Grammar Input:", grammarInput);
     const result = eliminateLeftRecursion(grammarInput);
-    document.getElementById("lr-output").innerText = "";
-    document.getElementById("lr-output").innerHTML = `<pre class="text-black overflow-auto h-68">${result}</pre>`;
-    // console.log("Left Recursion Eliminated:", result);
+    const out = document.getElementById("lr-output");
+    out.textContent = result || '// No output';
 });
 
-// Left factoring button (currently module marked Upcoming, so guard for absence)
-const btnLf = document.getElementById("btn-process-lf");
-if (btnLf) {
-    btnLf.addEventListener("click", () => {
-        const grammarInput = document.getElementById("lf-input").value;
-        const result = eliminateLeftFactoring(grammarInput);
-        document.getElementById("lf-output").innerText = "";
-        document.getElementById("lf-output").innerHTML = `<pre class=\"text-black overflow-auto h-68\">${result}</pre>`;
+// Add clear button for Left Recursion
+const lrClear = document.getElementById('btn-clear-lr');
+if(lrClear){
+    lrClear.addEventListener('click', ()=>{
+        const input = document.getElementById('lr-input');
+        const out = document.getElementById('lr-output');
+        if(input) input.value='';
+        if(out) out.textContent='// Left Recursion output will appear here...';
     });
 }
 
 
 document.getElementById("btn-process-ff").addEventListener("click", () => {
     const grammarInput = document.getElementById("ff-input").value;
-    // console.log("Grammar Input:", grammarInput);
     const result = computeFirstAndFollowSets(grammarInput);
-    console.log("First and Follow Sets Computed:", result);
-    document.getElementById("ff-output").innerText = "";
-    let tableHTML = "<table class='text-sm md:text-lg text-black overflow-auto w-full rounded-box border-collapse border border-gray-300'><thead><tr><th class='border border-gray-300 px-4 py-2'>Non-Terminal</th><th class='border border-gray-300 px-4 py-2'>First</th><th class='border border-gray-300 px-4 py-2'>Follow</th></tr></thead><tbody>";
-
-    for (const nonTerminal of Object.keys(result.first)) {
-        const firstSet = result.first[nonTerminal].join(" ");  // No quotes
-        const followSet = result.follow[nonTerminal].join(" ");  // No quotes
-        
-        tableHTML += `<tr>
-            <td class='border border-gray-300 px-4 py-2'>${nonTerminal}</td>
-            <td class='border border-gray-300 px-4 py-2'>${firstSet}</td>
-            <td class='border border-gray-300 px-4 py-2'>${followSet}</td>
-        </tr>`;
+    const out = document.getElementById("ff-output");
+    if(!out) return;
+    if(!grammarInput.trim()){
+        out.textContent='// FIRST & FOLLOW output will appear here...';
+        return; }
+    let lines = ['// FIRST & FOLLOW Sets'];
+    for (const nt of Object.keys(result.first)) {
+        const firstSet = result.first[nt].join(' ');
+        const followSet = result.follow[nt].join(' ');
+        lines.push(nt + '  FIRST: { ' + firstSet + ' }  FOLLOW: { ' + followSet + ' }');
     }
-    
-    tableHTML += "</tbody></table>";
-    document.getElementById("ff-output").innerHTML = tableHTML;
-    
-    
+    out.textContent = lines.join('\n');
 });
+
+// Add clear button for FIRST/FOLLOW
+const ffClear = document.getElementById('btn-clear-ff');
+if(ffClear){
+    ffClear.addEventListener('click', ()=>{
+        const input = document.getElementById('ff-input');
+        const out = document.getElementById('ff-output');
+        if(input) input.value='';
+        if(out) out.textContent='// FIRST & FOLLOW output will appear here...';
+    });
+}
 
 // ---------------- 3-ADDRESS CODE GENERATOR ----------------
 // Simple expression to 3-address code converter (handles + - * / ^ and parentheses, assignment)

@@ -140,22 +140,23 @@
                 <section id="sec-lr" class="hidden section rounded-xl">
                     <div class="px-5 pb-5 grid grid-cols-1 gap-5">
                         <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
-                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Input</h2>
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xl font-bold text-cyan-300">Input</h2>
+                                <button id="btn-clear-lr" class="text-xs px-3 py-1 rounded border border-slate-600 text-white/70 hover:text-white hover:border-cyan-400 transition-colors">Clear</button>
+                            </div>
                             <textarea id="lr-input"
                                 class="w-full h-60 p-3 border border-slate-700 rounded-lg resize-none bg-slate-950 text-white"
                                 placeholder="Enter your grammar here..."></textarea>
-                            <div class="flex justify-center mt-2">
-                                <!-- process buttons -->
+                            <div class="flex justify-center mt-3">
                                 <button id="btn-process-lr"
-                                    class="btn btn-wide rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
+                                    class="btn btn-sm md:btn-md rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
                             </div>
                         </div>
                         <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
-                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Output</h2>
-                            <div class="w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950">
-                                <p id="lr-output" class="text-white">Output will be displayed here...</p>
+                            <h2 class="text-xl font-bold mb-4 text-cyan-300">Output</h2>
+                            <div class="w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950 overflow-auto">
+                                <pre id="lr-output" class="text-cyan-200 text-xs md:text-sm leading-relaxed">// Left Recursion output will appear here...</pre>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -177,31 +178,22 @@
                 <section id="sec-ff" class="section rounded-xl">
                     <div class="px-5 pb-5 grid grid-cols-1 gap-5">
                         <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
-                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Input</h2>
+                            <div class="flex items-center justify-between mb-4">
+                                <h2 class="text-xl font-bold text-cyan-300">Input</h2>
+                                <button id="btn-clear-ff" class="text-xs px-3 py-1 rounded border border-slate-600 text-white/70 hover:text-white hover:border-cyan-400 transition-colors">Clear</button>
+                            </div>
                             <textarea id="ff-input"
                                 class="w-full h-60 p-3 border border-slate-700 rounded-lg resize-none bg-slate-950 text-white"
                                 placeholder="Enter your grammar here..."></textarea>
-                            <div class="flex justify-center mt-2">
+                            <div class="flex justify-center mt-3">
                                 <button id="btn-process-ff"
-                                    class="btn btn-wide rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white text-lg border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
+                                    class="btn btn-sm md:btn-md rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white border-none hover:from-cyan-400 hover:to-blue-500">Process</button>
                             </div>
                         </div>
                         <div class="border p-5 rounded-xl bg-slate-900 border-slate-700">
-                            <h2 class="text-xl font-bold mb-5 text-cyan-300">Output</h2>
-                            <div class="overflow-auto w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950">
-                                <div id="ff-output">
-                                    <table class="text-sm md:text-lg text-white overflow-auto w-full rounded-box border-collapse border border-slate-700">
-                                        <thead>
-                                            <tr class="bg-slate-800">
-                                                <th class='border border-slate-700 px-4 py-2 text-left'>Non-Terminal</th>
-                                                <th class='border border-slate-700 px-4 py-2 text-left'>First</th>
-                                                <th class='border border-slate-700 px-4 py-2 text-left'>Follow</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
+                            <h2 class="text-xl font-bold mb-4 text-cyan-300">Output</h2>
+                            <div class="w-full h-75 p-3 border border-slate-700 rounded-lg bg-slate-950 overflow-auto">
+                                <pre id="ff-output" class="text-cyan-200 text-xs md:text-sm leading-relaxed">// FIRST & FOLLOW output will appear here...</pre>
                             </div>
                         </div>
                     </div>
