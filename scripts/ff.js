@@ -5,7 +5,7 @@ function computeFirstAndFollowSets(grammarStr) {
   const start = nonTerminals[0];
 
   // Normalize productions into token arrays per RHS
-  const EPSILON_SYMBOLS = new Set(['ε','ϵ','e','Epsilon']);
+  const EPSILON_SYMBOLS = new Set(['ε','ϵ','Epsilon']);
   const productions = {}; // {A: [ [sym1,sym2,...] , ['ε'] , ... ]}
   nonTerminals.forEach(nt => {
     productions[nt] = productionsRaw[nt].map(p => {
